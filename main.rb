@@ -9,15 +9,55 @@ puts "Welcome to the Weapon Crafting chamber! Choose a name for your weapon."
 
 weapon = gets.chomp
 
-puts "Choose your pommel!"
+puts "Choose your grip!"
 
-pommel = gets.chomp
+grip = gets.chomp
 
-puts "Choose your handle!"
+puts "Choose your guard!"
 
-handle = gets.chomp
+guard = gets.chomp
 
 puts "Choose your blade!"
 
 blade = gets.chomp
 
+puts "
+
+╓▓╖
+▄▓██▌
+,▄██▓████▄
+╫██▀  ^█████▓╖
+██⌐    ▀█████▓▄
+▀█      ▀██████▄
+'▀▄      ▀█████▓┐
+          └▀████▓▄▓▓▄
+             ▀██████▀
+        ▄    ▄████▒▒▒╗
+         ▀▓▓███▀^▒▒▒▒▒▒╗
+           ▀▀└    `▒▒▒▒▒▒▒
+                     ▒▒▒▒▒▒▒
+                       ▒▒▒▒▒▒▒╖
+                         ▒▒▒▒▒▒▒╖
+                           ▒▒▒▒▒▒▒╗
+                            `▒▒▒▒▒▒▒▒
+                              ╙▒▒▒▒▒▒▒▒╖
+                               ╠▒▒▒▒▒▒▒▒▒╗
+                               └▒▒▒▒▒▒▒▒▒▒▒▒,
+                                 ;▒▒▒▒▒▒▒▒▒▒▒▒╗
+                                   `▒▒▒▒▒▒▒▒▒▒▒▒▒╖
+                                     `▒▒▒▒▒▒▒▒▒▒▒▒▒▒╖
+                                        ╚▒▒▒▒▒▒▒▒▒▒▒▒▒▒,
+                                          ╙▒▒▒▒▒▒▒▒▒▒▒▒▒╗
+                                            ╙▒▒▒▒▒▒▒▒▒▒▒▒▒
+                                              ╙▒▒▒▒▒▒▒▒▒▒▒▒╗
+                                                `▒▒▒▒▒▒▒▒▒▒▒▒,
+                                                   ╚▒▒▒▒▒▒▒▒▒▒▒
+                                                     ╙▒▒▒▒▒▒▒▒▒▒╦
+                                                        ╙▒▒▒▒▒▒▒▒▒ç
+                                                          `╚▒▒▒▒▒▒▒▒
+                                                             `╚▒▒▒▒▒▒╗
+                                                                `╙▒▒▒▒▒╦
+                                                                    ╙▒▒▒▒╖
+                                                                        ╙▒▒
+                                                                            "
+ 
