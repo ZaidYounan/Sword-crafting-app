@@ -1,0 +1,12 @@
+Welcome the user and print intro ascii-art
+Ask what the user would like to do (create weapon, load, delete)
+If user picks create
+- choose name of weapon
+- choose type of grip
+- choose type of guard
+- choose type of blade
+- print out resulting weapon name with ASCII art, and number of stats
+- give the user the option to save the weapon
+If user chooses load, he may load a previously created weapon and it will
+print out the weapon's name, ASCII art and stats
+If user chooses delete, he may delete a previously created weapon instance
