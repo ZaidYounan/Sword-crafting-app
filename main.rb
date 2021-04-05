@@ -1,4 +1,4 @@
-load('parts.rb')
+require "./parts"
 require 'artii'
 require 'rainbow'
 
@@ -21,11 +21,8 @@ puts "Choose your blade!"
 
 @blade = gets.chomp
 
-if @grip == "curved" && @guard == "wicked" && @blade == "straight"
-    puts "Your sword is called #{@weapon_name}, constructed with a #{@grip} grip, a #{@guard} guard and a #{@blade} blade."
-else
-    puts "nope"
-end
+puts Weapon.new(Rainbow(@weapon_name).color(:firebrick), @grip, @guard, @blade)
+
 
 puts "ascii image"
 
