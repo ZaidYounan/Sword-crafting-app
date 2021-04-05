@@ -3,7 +3,7 @@ require 'artii'
 require 'rainbow'
 
 artii = Artii::Base.new()
-title = artii.asciify('=WEAPON=CRAFTER=0 . 1=')
+title = artii.asciify('=WEAPON=CRAFTER=0 . 2=')
 
 puts Rainbow(title).color(:firebrick)
 puts "Welcome to the Weapon Crafting chamber! What would you like to do? (create, save, load or delete)"
