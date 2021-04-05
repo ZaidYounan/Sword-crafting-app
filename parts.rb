@@ -1,11 +1,10 @@
 class Weapon
-    attr_reader :id, :weapon_name, :guard, :blade
+    attr_reader :weapon_name, :grip, :guard, :blade
     attr_accessor :strength, :speed, :defence
 
     SWORDS = []
 
     def initialize(weapon_name, grip, guard, blade)
-        @id = SWORDS.length + 1
         @weapon_name = weapon_name
         @grip = grip
         @guard = guard
@@ -39,15 +38,15 @@ class Weapon
             @speed = speed + 4
             @defence = defence + 5
         end
-        if @blade = "straight"
+        if @blade == "straight"
             @strength = strength + 4
             @speed = speed + 3
             @defence = defence + 5
-        elsif @blade = "curved"
+        elsif @blade == "curved"
             @strength = strength + 3
             @speed = speed + 5
             @defence = defence + 3
-        elsif @blade = "broad"
+        elsif @blade == "broad"
             @strength = strength + 5
             @speed = speed + 3
             @defence = defence + 4
@@ -56,16 +55,15 @@ class Weapon
     end
 
     def to_s
-        
         "Your weapon is: 
-            #{@weapon_name}
-            The grip is: #{@grip}
-            The guard is: #{@guard}
-            The blade is: #{@blade}
-            Total stats are: 
-            Strength = #{@strength}
-            Speed = #{@speed}
-            Defence = #{@defence}"
+                #{@weapon_name}
+                The grip is: #{@grip.capitalize}
+                The guard is: #{@guard.capitalize}
+                The blade is: #{@blade.capitalize}
+                Total stats are: 
+                Strength = #{@strength}
+                Speed = #{@speed}
+                Defence = #{@defence}"
     end
 end
 
