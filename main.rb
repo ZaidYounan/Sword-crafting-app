@@ -6,23 +6,27 @@ artii = Artii::Base.new()
 title = artii.asciify('=WEAPON=CRAFTER=0 . 2=')
 
 puts Rainbow(title).color(:firebrick)
-puts "Welcome to the Weapon Crafting chamber! What would you like to do? (create, save, load or delete)"
+begin
+    print "Welcome to the Weapon Crafting chamber! What would you like to do? (create, save, load, delete or quit)"
+        request = gets.chomp.downcase.strip
+    end until [ 'quit', 'q'].include? request
+
 
 puts "Choose the name of your weapon!"
 
-@weapon_name = gets.chomp
+@weapon_name = gets.chomp.strip
 
-puts "Choose your grip!"
+puts "Choose your grip! (Straight, curved or wicked)"
 
-@grip = gets.chomp.downcase
+@grip = gets.chomp.downcase.strip
 
-puts "Choose your guard!"
+puts "Choose your guard! (Forward, backward or basket)"
 
-@guard = gets.chomp.downcase
+@guard = gets.chomp.downcase.strip
 
-puts "Choose your blade!"
+puts "Choose your blade! (Straight, curved, broad)"
 
-@blade = gets.chomp.downcase
+@blade = gets.chomp.downcase.strip
 
 puts "          <placeholder for ascii image>"
 
