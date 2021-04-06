@@ -84,6 +84,7 @@ class Weapon
     end
 
     def to_s
+        `play -q ./hammeringanvil.mp3`
         "
         Your weapon is: 
                 #{@ascii_image}
