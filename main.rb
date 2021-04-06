@@ -7,7 +7,7 @@ title = artii.asciify('=SWORD=CRAFTER=0 . 4=')
 puts Rainbow(title).color(:firebrick)
 puts "Welcome to the Weapon Crafting chamber! What would you like to do?"
 begin
-print "(create, load or delete): "
+print "(create, load, delete or quit): "
         user_input = gets.chomp.downcase.strip
         if user_input == "create"
             Weapon::create
