@@ -7,6 +7,7 @@ class Weapon
     SWORDS = []
 
     def initialize(weapon_name, grip, guard, blade)
+        @create
         @weapon_name = weapon_name
         @strength = 0
         @speed = 0
@@ -16,8 +17,38 @@ class Weapon
         self.blade = blade
         self.ascii_image = ascii_image
         SWORDS << self
-
     end
+
+def self.create
+    puts "Choose the name of your weapon!"
+    @weapon_name = gets.chomp.strip
+
+    puts "Choose your grip! (Straight, curved or wicked)"
+    @grip = gets.chomp.downcase.strip
+
+    puts "Choose your guard! (Forward, backward or basket)"
+    @guard = gets.chomp.downcase.strip
+
+    puts "Choose your blade! (Straight, curved, broad)"
+    @blade = gets.chomp.downcase.strip
+
+    puts Weapon.new(Rainbow(@weapon_name).color(:purple), @grip, @guard, @blade) 
+end
+
+def self.load
+    if SWORDS.length > 0
+        puts "--- SWORD RACK ---"
+        puts SWORDS
+    else puts "Sword rack is empty :("
+    end
+end
+
+def self.delete
+    del = SWORDS.find_index(@weapon_name)
+    if SWORDS[del] > 0
+        SWORDS[del] = nil
+    end
+end
 
     def grip=(grip)
         @grip = grip
@@ -86,7 +117,6 @@ class Weapon
     def to_s
         `play -q ./hammeringanvil.mp3`
         "
-        Your weapon is: 
                 #{@ascii_image}
                 #{@weapon_name}
                 Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
