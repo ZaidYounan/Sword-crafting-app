@@ -6,10 +6,8 @@ artii = Artii::Base.new()
 title = artii.asciify('=WEAPON=CRAFTER=0 . 2=')
 
 puts Rainbow(title).color(:firebrick)
-begin
-    print "Welcome to the Weapon Crafting chamber! What would you like to do? (create, save, load, delete or quit)"
+    print "Welcome to the Weapon Crafting chamber! What would you like to do? (create, save, load or delete)"
         request = gets.chomp.downcase.strip
-    end until [ 'quit', 'q'].include? request
 
 
 puts "Choose the name of your weapon!"

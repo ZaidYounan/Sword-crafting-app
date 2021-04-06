@@ -6,12 +6,17 @@ class Weapon
 
     def initialize(weapon_name, grip, guard, blade)
         @weapon_name = weapon_name
-        @grip = grip
-        @guard = guard
-        @blade = blade
         @strength = 0
         @speed = 0
         @defence = 0
+        self.grip = grip
+        self.guard = guard
+        self.blade = blade
+        SWORDS << self
+    end
+
+    def grip=(grip)
+        @grip = grip
         if @grip == "straight"
             @strength = strength + 5 
             @speed = speed + 3
@@ -25,6 +30,10 @@ class Weapon
             @speed = speed + 4
             @defence = defence + 3
         end
+    end 
+
+    def guard=(guard)
+        @guard = guard
         if @guard == "forward"
             @strength = strength + 5
             @speed = speed + 3
@@ -38,6 +47,10 @@ class Weapon
             @speed = speed + 4
             @defence = defence + 5
         end
+    end
+
+    def blade=(blade)
+        @blade = blade
         if @blade == "straight"
             @strength = strength + 4
             @speed = speed + 3
@@ -51,7 +64,6 @@ class Weapon
             @speed = speed + 3
             @defence = defence + 4
         end
-        SWORDS << self
     end
 
     def to_s
