@@ -88,9 +88,7 @@ class Weapon
         Your weapon is: 
                 #{@ascii_image}
                 #{@weapon_name}
-                The grip is: #{@grip.capitalize}
-                The guard is: #{@guard.capitalize}
-                The blade is: #{@blade.capitalize}
+                Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
                 Total stats are: 
                 Strength = #{@strength}
                 Speed = #{@speed}
