@@ -37,7 +37,11 @@ class Weapon
 
     def self.load
         if SWORDS.length > 0
-            puts "--- SWORD RACK ---"
+            puts "Opening sword rack..."
+            `play -q ./loadsound.mp3`
+            puts "
+            
+            --- SWORD RACK ---"
             puts SWORDS
         else puts "Sword rack is empty :("
         end
@@ -58,16 +62,16 @@ class Weapon
     def grip=(grip)
         @grip = grip
         if @grip == "straight"
-            @strength = strength + 5 
-            @speed = speed + 3
-            @defence = defence + 5
+            @strength = strength + 8 
+            @speed = speed + 4
+            @defence = defence + 3
         elsif @grip == "curved"
             @strength = strength + 3 
-            @speed = speed + 5
+            @speed = speed + 8
             @defence = defence + 4
         elsif @grip == "wicked"
-            @strength = strength + 4 
-            @speed = speed + 4
+            @strength = strength + 6 
+            @speed = speed + 6
             @defence = defence + 3
         end
     end 
@@ -75,34 +79,34 @@ class Weapon
     def guard=(guard)
         @guard = guard
         if @guard == "forward"
-            @strength = strength + 5
-            @speed = speed + 3
+            @strength = strength + 8
+            @speed = speed + 4
             @defence = defence + 3
         elsif @guard == "backward"
-            @strength = strength + 4
-            @speed = speed + 4
-            @defence = defence + 4
+            @strength = strength + 3
+            @speed = speed + 6
+            @defence = defence + 6
         elsif @guard == "basket"
             @strength = strength + 3
             @speed = speed + 4
-            @defence = defence + 5
+            @defence = defence + 8
         end
     end
 
     def blade=(blade)
         @blade = blade
         if @blade == "straight"
-            @strength = strength + 4
-            @speed = speed + 3
-            @defence = defence + 5
+            @strength = strength + 8
+            @speed = speed + 4
+            @defence = defence + 3
         elsif @blade == "curved"
             @strength = strength + 3
-            @speed = speed + 5
-            @defence = defence + 3
-        elsif @blade == "broad"
-            @strength = strength + 5
-            @speed = speed + 3
+            @speed = speed + 8
             @defence = defence + 4
+        elsif @blade == "broad"
+            @strength = strength + 4
+            @speed = speed + 3
+            @defence = defence + 8
         end
     end
 
@@ -114,6 +118,14 @@ class Weapon
             end
         elsif @grip == "wicked" && @guard == "forward" && @blade == "straight"
             File.foreach('./swords/sword19.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "forward" && @blade == "straight"
+            File.foreach('./swords/sword1.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "forward" && @blade == "broad"
+            File.foreach('./swords/sword3.txt') do |line|
                 puts "#{line}"
             end
         end
