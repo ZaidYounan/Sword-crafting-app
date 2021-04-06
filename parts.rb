@@ -1,6 +1,8 @@
+require 'rainbow'
+
 class Weapon
     attr_reader :weapon_name, :grip, :guard, :blade
-    attr_accessor :strength, :speed, :defence
+    attr_accessor :strength, :speed, :defence, :ascii_image
 
     SWORDS = []
 
@@ -12,7 +14,9 @@ class Weapon
         self.grip = grip
         self.guard = guard
         self.blade = blade
+        self.ascii_image = ascii_image
         SWORDS << self
+
     end
 
     def grip=(grip)
@@ -66,8 +70,23 @@ class Weapon
         end
     end
 
+    def ascii_image=(ascii_image)
+        @ascii_image = ascii_image
+        if @grip == "straight" && @guard == "forward" && @blade == "curved"
+            File.foreach('./swords/sword2.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "forward" && @blade == "straight"
+            File.foreach('./swords/sword19.txt') do |line|
+                puts "#{line}"
+            end
+        end
+    end
+
     def to_s
-        "Your weapon is: 
+        "
+        Your weapon is: 
+                #{@ascii_image}
                 #{@weapon_name}
                 The grip is: #{@grip.capitalize}
                 The guard is: #{@guard.capitalize}

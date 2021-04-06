@@ -26,12 +26,6 @@ puts "Choose your blade! (Straight, curved, broad)"
 
 @blade = gets.chomp.downcase.strip
 
-puts "          <placeholder for ascii image>"
 
 puts Weapon.new(Rainbow(@weapon_name).color(:purple), @grip, @guard, @blade)
-
-
-
-
-
 
