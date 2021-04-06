@@ -7,7 +7,6 @@ class Weapon
     SWORDS = []
 
     def initialize(weapon_name, grip, guard, blade)
-        @create
         @weapon_name = weapon_name
         @strength = 0
         @speed = 0
@@ -19,36 +18,42 @@ class Weapon
         SWORDS << self
     end
 
-def self.create
-    puts "Choose the name of your weapon!"
-    @weapon_name = gets.chomp.strip
+    def self.create
+        puts "Choose the name of your weapon!"
+        @weapon_name = gets.chomp.strip
 
-    puts "Choose your grip! (Straight, curved or wicked)"
-    @grip = gets.chomp.downcase.strip
+        puts "Choose your grip! (Straight, curved or wicked)"
+        @grip = gets.chomp.downcase.strip
 
-    puts "Choose your guard! (Forward, backward or basket)"
-    @guard = gets.chomp.downcase.strip
+        puts "Choose your guard! (Forward, backward or basket)"
+        @guard = gets.chomp.downcase.strip
 
-    puts "Choose your blade! (Straight, curved, broad)"
-    @blade = gets.chomp.downcase.strip
+        puts "Choose your blade! (Straight, curved, broad)"
+        @blade = gets.chomp.downcase.strip
 
-    puts Weapon.new(Rainbow(@weapon_name).color(:purple), @grip, @guard, @blade) 
-end
-
-def self.load
-    if SWORDS.length > 0
-        puts "--- SWORD RACK ---"
-        puts SWORDS
-    else puts "Sword rack is empty :("
+        `play -q ./hammeringanvil.mp3`
+        puts Weapon.new(Rainbow(@weapon_name).color(:purple), @grip, @guard, @blade) 
     end
-end
 
-def self.delete
-    del = SWORDS.find_index(@weapon_name)
-    if SWORDS[del] > 0
-        SWORDS[del] = nil
+    def self.load
+        if SWORDS.length > 0
+            puts "--- SWORD RACK ---"
+            puts SWORDS
+        else puts "Sword rack is empty :("
+        end
     end
-end
+
+# def find_index
+#     index = SWORDS.find_index(@weapon_name)
+# end
+
+# def self.delete
+#     "Which "
+#     del = SWORDS.find_index(@weapon_name)
+#     if SWORDS[del] > 0
+#         SWORDS[del] = nil
+#     end
+# end
 
     def grip=(grip)
         @grip = grip
@@ -115,15 +120,13 @@ end
     end
 
     def to_s
-        `play -q ./hammeringanvil.mp3`
-        "
-                #{@ascii_image}
-                #{@weapon_name}
-                Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
-                Total stats are: 
-                Strength = #{@strength}
-                Speed = #{@speed}
-                Defence = #{@defence}"
+       "#{@ascii_image}
+        #{@weapon_name}
+        Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
+        Total stats are: 
+        Strength = #{@strength}
+        Speed = #{@speed}
+        Defence = #{@defence}"
     end
 end
 

@@ -16,6 +16,7 @@ print "(create, load or delete): "
             Weapon::load
         end
         if user_input == "delete"
+            Weapon::delete
         end
 end until [ 'quit', 'q', 'exit'].include? user_input
 
