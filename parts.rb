@@ -107,16 +107,13 @@ class Weapon
 
     def ascii_image=(ascii_image)
         @ascii_image = ascii_image
-        if @grip == "straight" && @guard == "forward" && @blade == "curved"
-            File.foreach('./swords/sword2.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "wicked" && @guard == "forward" && @blade == "narrow"
-            File.foreach('./swords/sword19.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "straight" && @guard == "forward" && @blade == "narrow"
+
+        if @grip == "straight" && @guard == "forward" && @blade == "narrow"
             File.foreach('./swords/sword1.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "forward" && @blade == "curved"
+            File.foreach('./swords/sword2.txt') do |line|
                 puts "#{line}"
             end
         elsif @grip == "straight" && @guard == "forward" && @blade == "broad"
@@ -125,34 +122,6 @@ class Weapon
             end
         elsif @grip == "straight" && @guard == "flat" && @blade == "narrow"
             File.foreach('./swords/sword4.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "curved" && @guard == "forward" && @blade == "curved"
-            File.foreach('./swords/sword11.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "wicked" && @guard == "flat" && @blade == "broad"
-            File.foreach('./swords/sword24.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "wicked" && @guard == "flat" && @blade == "narrow"
-            File.foreach('./swords/sword22.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "curved" && @guard == "flat" && @blade == "curved"
-            File.foreach('./swords/sword14.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "straight" && @guard == "basket" && @blade == "curved"
-            File.foreach('./swords/sword8.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "curved" && @guard == "basket" && @blade == "curved"
-            File.foreach('./swords/sword17.txt') do |line|
-                puts "#{line}"
-            end
-        elsif @grip == "wicked" && @guard == "flat" && @blade == "curved"
-            File.foreach('./swords/sword23.txt') do |line|
                 puts "#{line}"
             end
         elsif @grip == "straight" && @guard == "flat" && @blade == "curved"
@@ -167,6 +136,92 @@ class Weapon
             File.foreach('./swords/sword7.txt') do |line|
                 puts "#{line}"
             end
+        elsif @grip == "straight" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword8.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "basket" && @blade == "broad"
+            File.foreach('./swords/sword9.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "forward" && @blade == "narrow"
+            File.foreach('./swords/sword10.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "forward" && @blade == "curved"
+            File.foreach('./swords/sword11.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "forward" && @blade == "broad"
+            File.foreach('./swords/sword12.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "flat" && @blade == "narrow"
+            File.foreach('./swords/sword13.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "flat" && @blade == "curved"
+            File.foreach('./swords/sword14.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "flat" && @blade == "broad"
+            File.foreach('./swords/sword15.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "basket" && @blade == "narrow"
+            File.foreach('./swords/sword16.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword17.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "basket" && @blade == "broad"
+            File.foreach('./swords/sword18.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "forward" && @blade == "narrow"
+            File.foreach('./swords/sword19.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "forward" && @blade == "curved"
+            File.foreach('./swords/sword20.txt') do |line|
+                puts "#{line}"
+            end
+
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "broad"
+            File.foreach('./swords/sword24.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "forward" && @blade == "broad"
+            File.foreach('./swords/sword21.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "narrow"
+            File.foreach('./swords/sword22.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "curved"
+            File.foreach('./swords/sword23.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "broad"
+            File.foreach('./swords/sword24.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "basket" && @blade == "narrow"
+            File.foreach('./swords/sword25.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword26.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword27.txt') do |line|
+                puts "#{line}"
+            end
+
         end
     end
 
