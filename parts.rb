@@ -217,7 +217,7 @@ class Weapon
             File.foreach('./swords/sword26.txt') do |line|
                 puts "#{line}"
             end
-        elsif @grip == "wicked" && @guard == "basket" && @blade == "curved"
+        elsif @grip == "wicked" && @guard == "basket" && @blade == "broad"
             File.foreach('./swords/sword27.txt') do |line|
                 puts "#{line}"
             end
