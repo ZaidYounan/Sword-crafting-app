@@ -1,13 +1,17 @@
 require "./parts"
 require 'artii'
 require 'rainbow'
+require 'tty-prompt'
+prompt = TTY::Prompt.new
 
 artii = Artii::Base.new()
 title = artii.asciify('=SWORD=CRAFTER=0 . 4=')
 puts Rainbow(title).color(:firebrick)
+
 puts "Welcome to the Weapon Crafting chamber! What would you like to do?"
+
 begin
-print "(create, load, delete or quit): "
+    print "(create, load, delete or quit): "
         user_input = gets.chomp.downcase.strip
         if user_input == "create"
             Weapon::create

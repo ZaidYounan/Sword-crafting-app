@@ -1,4 +1,3 @@
-require 'rainbow'
 
 class Weapon
     attr_reader :weapon_name, :grip, :guard, :blade
@@ -31,14 +30,14 @@ class Weapon
         puts "Choose your blade! (Narrow, curved or broad)"
         @blade = gets.chomp.downcase.strip
 
-        `play -q ./audio/hammeringanvil.mp3`
-        puts Weapon.new(Rainbow(@weapon_name).color(:purple), @grip, @guard, @blade) 
+        # `play -q ./audio/hammeringanvil.mp3`
+        puts Weapon.new(@weapon_name, @grip, @guard, @blade)
     end
 
     def self.load
         if SWORDS.length > 0
             puts "Opening sword rack..."
-            `play -q ./audio/loadsound.mp3`
+            # `play -q ./audio/loadsound.mp3`
             puts "
             
             --- SWORD RACK ---"
@@ -47,17 +46,13 @@ class Weapon
         end
     end
 
-# def find_index
-#     index = SWORDS.find_index(@weapon_name)
-# end
-
-# def self.delete
-#     "Which "
-#     del = SWORDS.find_index(@weapon_name)
-#     if SWORDS[del] > 0
-#         SWORDS[del] = nil
-#     end
-# end
+    def self.delete
+        Weapon::load
+        puts "Which weapon would you like to delete?"
+        delete_target = gets.chomp.strip.downcase
+        SWORDS.delete_if{ |sword| sword.weapon_name.downcase == delete_target}
+        Weapon::load
+    end
 
     def grip=(grip)
         @grip = grip
@@ -140,12 +135,44 @@ class Weapon
             File.foreach('./swords/sword24.txt') do |line|
                 puts "#{line}"
             end
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "narrow"
+            File.foreach('./swords/sword22.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "flat" && @blade == "curved"
+            File.foreach('./swords/sword14.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword8.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "curved" && @guard == "basket" && @blade == "curved"
+            File.foreach('./swords/sword17.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "wicked" && @guard == "flat" && @blade == "curved"
+            File.foreach('./swords/sword23.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "flat" && @blade == "curved"
+            File.foreach('./swords/sword5.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "flat" && @blade == "broad"
+            File.foreach('./swords/sword6.txt') do |line|
+                puts "#{line}"
+            end
+        elsif @grip == "straight" && @guard == "basket" && @blade == "narrow"
+            File.foreach('./swords/sword7.txt') do |line|
+                puts "#{line}"
+            end
         end
     end
 
     def to_s
        "#{@ascii_image}
-        #{@weapon_name}
+        #{Rainbow(@weapon_name).color(:purple)}
         Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
         Total stats are: 
         Strength = #{@strength}
