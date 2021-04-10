@@ -53,7 +53,6 @@ class Weapon
 
         # `play -q ./audio/hammeringanvil.mp3`
         puts Weapon.new(@weapon_name, @grip, @guard, @blade)
-        p SWORDS
     end
 
     def self.view
@@ -70,6 +69,10 @@ class Weapon
         Weapon::view
         puts "Which weapon would you like to delete?".colorize(:light_blue)
         delete_target = gets.chomp.strip.downcase
+        until SWORDS.bsearch{|s| s.weapon_name.downcase == delete_target}
+            puts "Please enter a valid sword name.".colorize(:light_blue)
+            delete_target = gets.chomp.strip.downcase
+        end
         SWORDS.delete_if{ |sword| sword.weapon_name.downcase == delete_target}
         Weapon::view
     end
