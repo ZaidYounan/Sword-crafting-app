@@ -1,7 +1,7 @@
 
 class Weapon
-    attr_reader :weapon_name, :grip, :guard, :blade
-    attr_accessor :strength, :speed, :defence, :ascii_image
+    attr_reader :weapon_name
+    attr_accessor :grip, :guard, :blade, :strength, :speed, :defence, :ascii_image
 
     SWORDS = []
 
@@ -18,40 +18,60 @@ class Weapon
     end
 
     def self.create
-        puts "Choose the name of your weapon!"
+
+        puts "Choose the name of your weapon!".colorize(:light_magenta)
         @weapon_name = gets.chomp.strip
 
-        puts "Choose your grip! (Straight, curved or wicked)"
+        puts "Choose your grip! (Straight, curved or wicked)".colorize(:light_magenta)
         @grip = gets.chomp.downcase.strip
+        until @grip == "straight" || @grip == "curved" || @grip == "wicked"
+            break
+            if not @grip == "straight" || @grip == "curved" || @grip == "wicked"
+                puts "Please select either a straight, curved or wicked grip.".colorize(:red)
+                @grip = gets.chomp.downcase.strip
+            end
+        end
 
-        puts "Choose your guard! (Forward, flat or basket)"
+        puts "Choose your guard! (Forward, flat or basket)".colorize(:light_magenta)
         @guard = gets.chomp.downcase.strip
+        until @guard == "forward" || @guard == "flat" || @guard == "basket"
+            break
+            if not @guard == "forward" || @guard == "flat" || @guard == "basket"
+                puts "Please select either a forward, flat or basket guard.".colorize(:red)
+                @guard = gets.chomp.downcase.strip
+            end
+        end
 
-        puts "Choose your blade! (Narrow, curved or broad)"
+        puts "Choose your blade! (Narrow, curved or broad)".colorize(:light_magenta)
         @blade = gets.chomp.downcase.strip
+        until @blade == "narrow" || @blade == "curved" || @blade == "broad"
+            if not @blade == "narrow" || @blade == "curved" || @blade == "broad"
+                puts "Please select either a narrow, curved or broad blade.".colorize(:red)
+                @blade = gets.chomp.downcase.strip
+            end
+        end
 
         # `play -q ./audio/hammeringanvil.mp3`
         puts Weapon.new(@weapon_name, @grip, @guard, @blade)
+        p SWORDS
     end
 
-    def self.load
+    def self.view
         if SWORDS.length > 0
-            puts "Opening sword rack..."
+            puts "Opening sword rack...".colorize(:light_blue)
             # `play -q ./audio/loadsound.mp3`
-            puts "
-            
-            --- SWORD RACK ---"
+            puts "\n --- SWORD RACK ---"
             puts SWORDS
-        else puts "Sword rack is empty :("
+        else puts "Sword rack is empty :(".colorize(:light_blue)
         end
     end
 
     def self.delete
-        Weapon::load
-        puts "Which weapon would you like to delete?"
+        Weapon::view
+        puts "Which weapon would you like to delete?".colorize(:light_blue)
         delete_target = gets.chomp.strip.downcase
         SWORDS.delete_if{ |sword| sword.weapon_name.downcase == delete_target}
-        Weapon::load
+        Weapon::view
     end
 
     def grip=(grip)
@@ -226,13 +246,13 @@ class Weapon
     end
 
     def to_s
-       "#{@ascii_image}
-        #{Rainbow(@weapon_name).color(:purple)}
-        Featuring a #{@grip.capitalize} grip, a #{@guard.capitalize} guard and a #{@blade.capitalize} blade.
-        Total stats are: 
-        Strength = #{@strength}
-        Speed = #{@speed}
-        Defence = #{@defence}"
+    "#{@ascii_image}\n" +
+    "#{Rainbow(@weapon_name).color(:magenta)}\n" +
+    Rainbow("Featuring a #{@grip.downcase} grip, a #{@guard.downcase} guard and a #{@blade.downcase} blade.").gold +
+    "\nTotal stats are:\n".colorize(:blue) +
+    "Strength = ".colorize(:light_blue) + "#{@strength}\n".colorize(:red) +
+    "Speed = ".colorize(:light_blue) + "#{@speed}\n".colorize(:green) +
+    "Defence = ".colorize(:light_blue) + "#{@defence}\n".colorize(:yellow)
     end
 end
 
