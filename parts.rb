@@ -1,4 +1,3 @@
-
 class Weapon
     attr_reader :weapon_name
     attr_accessor :grip, :guard, :blade, :strength, :speed, :defence, :ascii_image
@@ -25,7 +24,6 @@ class Weapon
         puts "Choose your grip! (Straight, curved or wicked)".colorize(:light_magenta)
         @grip = gets.chomp.downcase.strip
         until @grip == "straight" || @grip == "curved" || @grip == "wicked"
-            break
             if not @grip == "straight" || @grip == "curved" || @grip == "wicked"
                 puts "Please select either a straight, curved or wicked grip.".colorize(:red)
                 @grip = gets.chomp.downcase.strip
@@ -35,7 +33,6 @@ class Weapon
         puts "Choose your guard! (Forward, flat or basket)".colorize(:light_magenta)
         @guard = gets.chomp.downcase.strip
         until @guard == "forward" || @guard == "flat" || @guard == "basket"
-            break
             if not @guard == "forward" || @guard == "flat" || @guard == "basket"
                 puts "Please select either a forward, flat or basket guard.".colorize(:red)
                 @guard = gets.chomp.downcase.strip
@@ -69,7 +66,7 @@ class Weapon
         Weapon::view
         puts "Which weapon would you like to delete?".colorize(:light_blue)
         delete_target = gets.chomp.strip.downcase
-        until SWORDS.bsearch{|s| s.weapon_name.downcase == delete_target}
+        until SWORDS.any?{|s| s.weapon_name.downcase == delete_target}
             puts "Please enter a valid sword name.".colorize(:light_blue)
             delete_target = gets.chomp.strip.downcase
         end
