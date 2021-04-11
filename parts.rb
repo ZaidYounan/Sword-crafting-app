@@ -20,6 +20,10 @@ class Weapon
 
         puts "Choose the name of your weapon!".colorize(:light_magenta)
         @weapon_name = gets.chomp.strip
+        if SWORDS.any?{ |s| s.weapon_name.downcase == @weapon_name} 
+                puts "That sword name already exists, please choose another.".colorize(:light_blue)
+                @weapon_name = gets.chomp.strip
+        end
 
         puts "Choose your grip! (Straight, curved or wicked)".colorize(:light_magenta)
         @grip = gets.chomp.downcase.strip
