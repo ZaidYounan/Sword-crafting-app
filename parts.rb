@@ -20,7 +20,7 @@ class Weapon
 
         puts "Choose the name of your weapon!".colorize(:light_magenta)
         @weapon_name = gets.chomp.strip
-        if SWORDS.any?{ |s| s.weapon_name.downcase == @weapon_name} 
+        while SWORDS.any?{ |s| s.weapon_name == @weapon_name} do
                 puts "That sword name already exists, please choose another.".colorize(:light_blue)
                 @weapon_name = gets.chomp.strip
         end
