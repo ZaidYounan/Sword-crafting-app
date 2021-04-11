@@ -58,20 +58,23 @@ class Weapon
             # `play -q ./audio/loadsound.mp3`
             puts "\n --- SWORD RACK ---"
             puts SWORDS
-        else puts "Sword rack is empty :(".colorize(:light_blue)
+        else puts "Sword rack is empty.".colorize(:light_blue)
         end
     end
 
     def self.delete
-        Weapon::view
-        puts "Which weapon would you like to delete?".colorize(:light_blue)
-        delete_target = gets.chomp.strip.downcase
-        until SWORDS.any?{|s| s.weapon_name.downcase == delete_target}
-            puts "Please enter a valid sword name.".colorize(:light_blue)
+        if SWORDS.length > 0
+            Weapon::view
+            puts "Which weapon would you like to delete?".colorize(:light_blue)
             delete_target = gets.chomp.strip.downcase
+            until SWORDS.any?{|s| s.weapon_name.downcase == delete_target}
+                puts "Please enter a valid sword name.".colorize(:light_blue)
+                delete_target = gets.chomp.strip.downcase
+            end
+            SWORDS.delete_if{ |sword| sword.weapon_name.downcase == delete_target}
+            Weapon::view
+        else puts "You have no swords yet."
         end
-        SWORDS.delete_if{ |sword| sword.weapon_name.downcase == delete_target}
-        Weapon::view
     end
 
     def grip=(grip)
