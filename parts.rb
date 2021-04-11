@@ -2,8 +2,10 @@ class Weapon
     attr_reader :weapon_name
     attr_accessor :grip, :guard, :blade, :strength, :speed, :defence, :ascii_image
 
+    # Array to store created swords
     SWORDS = []
 
+    
     def initialize(weapon_name, grip, guard, blade)
         @weapon_name = weapon_name
         @strength = 0
@@ -16,6 +18,7 @@ class Weapon
         SWORDS << self
     end
 
+    # Method to create swords
     def self.create
 
         puts "Choose the name of your weapon!".colorize(:light_magenta)
@@ -51,14 +54,16 @@ class Weapon
                 @blade = gets.chomp.downcase.strip
             end
         end
-
+        # Sound that requires SOX installed, commented out by default
         # `play -q ./audio/hammeringanvil.mp3`
         puts Weapon.new(@weapon_name, @grip, @guard, @blade)
     end
 
+    # Prints out display list of current swords
     def self.view
         if SWORDS.length > 0
             puts "Opening sword rack...".colorize(:light_blue)
+            # Sound that requires SOX installed, commented out by default
             # `play -q ./audio/loadsound.mp3`
             puts "\n --- SWORD RACK ---"
             puts SWORDS
@@ -66,6 +71,7 @@ class Weapon
         end
     end
 
+    # Method to delete stored swords
     def self.delete
         if SWORDS.length > 0
             Weapon::view
@@ -81,6 +87,7 @@ class Weapon
         end
     end
 
+    # Store grip choices, and iterate the stats on them
     def grip=(grip)
         @grip = grip
         if @grip == "straight"
@@ -98,6 +105,7 @@ class Weapon
         end
     end 
 
+    # Store guard choices, and iterate the stats on them
     def guard=(guard)
         @guard = guard
         if @guard == "forward"
@@ -115,6 +123,7 @@ class Weapon
         end
     end
 
+    # Store blade choices, and iterate the stats on them
     def blade=(blade)
         @blade = blade
         if @blade == "narrow"
@@ -132,6 +141,7 @@ class Weapon
         end
     end
 
+    # Evaluates sword component choices and decides which sword image should be printed
     def ascii_image=(ascii_image)
         @ascii_image = ascii_image
 
@@ -252,14 +262,15 @@ class Weapon
         end
     end
 
+    # Override of to_s in order to properly display sword stats and images.
     def to_s
     "#{@ascii_image}\n" +
     "#{Rainbow(@weapon_name).color(:magenta)}\n" +
     Rainbow("Featuring a #{@grip.downcase} grip, a #{@guard.downcase} guard and a #{@blade.downcase} blade.").gold +
     "\nTotal stats are:\n".colorize(:blue) +
-    "Strength = ".colorize(:light_blue) + "#{@strength}\n".colorize(:red) +
-    "Speed = ".colorize(:light_blue) + "#{@speed}\n".colorize(:green) +
-    "Defence = ".colorize(:light_blue) + "#{@defence}\n".colorize(:yellow)
+    "Strength = ".colorize(:light_cyan) + "#{@strength}\n".colorize(:red) +
+    "Speed = ".colorize(:light_cyan) + "#{@speed}\n".colorize(:green) +
+    "Defence = ".colorize(:light_cyan) + "#{@defence}\n".colorize(:yellow)
     end
 end
 

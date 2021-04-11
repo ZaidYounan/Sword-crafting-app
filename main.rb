@@ -5,12 +5,15 @@ require 'artii'
 require 'rainbow'
 require 'colorize'
 
+# Intro title for the program
 artii = Artii::Base.new :font => 'basic'
 title = artii.asciify('=SWORD=CRAFTER=1 . 0=')
 puts Rainbow(title).color(:firebrick)
 
+# Intro prompt
 puts "Welcome to the Weapon Crafting chamber! What would you like to do?".colorize(:light_blue)
 
+# Menu loop 
 begin
     print "Enter a command: (create, view, delete or quit): ".colorize(:light_blue)
         user_input = gets.chomp.downcase.strip
